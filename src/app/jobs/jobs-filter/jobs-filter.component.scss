@@ -1,10 +1,12 @@
 .filter {
     width: 400px;
+    max-width: 70vw;
     margin-right: 24px;
     height: 100vh;
     border: 1px solid rgb(90,131,168);
     border-radius: 4px;
     padding: 1rem;
+    overflow-y: auto;
     .title{
       font-size: 20px;
       font-weight: bold;
@@ -21,7 +23,7 @@
     }
     @media screen and(max-width:991px) {
         position: fixed;
-        left: -115vw;
+        left: -120vw;
         z-index: 2;
         top: 0;
         background-color: white;
