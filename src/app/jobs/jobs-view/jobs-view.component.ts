@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime, filter, skip, take } from 'rxjs';
@@ -18,6 +18,7 @@ export class JobsViewComponent implements OnInit {
   sectors:any = Object.keys(SectorEnum);
   countries:any = Object.keys(CountryEnum);
   citiesList:any = wholeCitiesList;
+  @Output('toggleFilter') toggleFilterEmitter = new EventEmitter<void>()
   constructor(
     private jobsDataService: JobsDataService,
     private router: Router,
@@ -40,6 +41,11 @@ export class JobsViewComponent implements OnInit {
       .pipe(skip(1))
       .subscribe((jobs) => (this.jobs = jobs));
     this.handleTermChange();
+  }
+
+  toggleFilter(event:Event){
+    event.stopPropagation();
+    this.toggleFilterEmitter.emit();
   }
 
   private handleTermChange() {

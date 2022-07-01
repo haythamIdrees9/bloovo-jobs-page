@@ -1,8 +1,17 @@
 <div class="container">
     <div class="actions-container mb-24px">
         <input placeholder="Search By Job Title" class="search-field" [formControl]="filterControl">
-        <button class="add-new">Add New Job</button>
+        <div class="filter-mobile-container">
+            <button class="filter-mobile" (click)="toggleFilter($event)">
+                <img   height="24px" width="24px" src="assets/images/filter.svg" alt="view job">
+            </button>
+            <button class="add-new">Add New Job</button>
+        </div>
     </div>
+    <button class="filter-tablet" (click)="toggleFilter($event)">
+        <img  height="24px" width="24px" src="assets/images/filter.svg" alt="view job">
+    </button>
+
 
     <div >
         <app-job-card *ngFor="let job of filteredJobs" [job]="job"></app-job-card>

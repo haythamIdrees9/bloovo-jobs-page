@@ -1,4 +1,4 @@
-<div class="filter">
+<div class="filter" [class.opened]="opened" (click)="$event.stopPropagation()">
   <form>
 
     <div class="title">Sector</div>

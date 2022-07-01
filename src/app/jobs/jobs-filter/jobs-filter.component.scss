@@ -1,6 +1,5 @@
 .filter {
     width: 400px;
-    min-width: 400px;
     margin-right: 24px;
     height: 100vh;
     border: 1px solid rgb(90,131,168);
@@ -18,9 +17,17 @@
       cursor: pointer;
     }
     @media screen and(max-width:1400px) {
-        min-width: calc(100vw - 976px);
-      }
+        width: 300px;
+    }
     @media screen and(max-width:991px) {
-      display: none;
+        position: fixed;
+        left: -115vw;
+        z-index: 2;
+        top: 0;
+        background-color: white;
+        transition: left .35s;
+        &.opened{
+          left: 0;
+        }
     }
   }

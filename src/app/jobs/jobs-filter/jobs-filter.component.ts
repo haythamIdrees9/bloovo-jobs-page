@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CountryEnum, SectorEnum, wholeCitiesList } from '../job-model';
 
@@ -20,6 +20,8 @@ export class JobsFilterComponent implements OnInit {
     countries: Array(Object.keys(CountryEnum).length).fill(false),
     cities: Array(Object.keys(wholeCitiesList).length).fill(false),
   };
+  @Input('opened') opened!:boolean;
+  
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {

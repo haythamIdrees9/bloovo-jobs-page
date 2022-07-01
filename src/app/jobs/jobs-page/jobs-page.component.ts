@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-jobs-page',
@@ -6,4 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./jobs-page.component.scss']
 })
 export class JobsPageComponent  {
+  filterOpened:boolean = false;
+  @HostListener('document:click', ['$event'])
+  onClick() {
+    console.log('filterOpened',this.filterOpened);
+    
+    this.filterOpened = false;
+  }
 }
