@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="actions-container mb-24px">
+        <input placeholder="Search By Job Title" class="search-field" [formControl]="filterControl">
+        <button class="add-new">Add New Job</button>
+    </div>
+
+    <div >
+        <app-job-card *ngFor="let job of filteredJobs" [job]="job"></app-job-card>
+    </div>
+</div>

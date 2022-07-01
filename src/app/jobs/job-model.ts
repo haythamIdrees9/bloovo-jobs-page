@@ -21,7 +21,7 @@ export const  citiesList:Readonly<{[CounterEnum.PALESTINE]:ReadonlyArray<string>
       [CounterEnum.SAUDI_ARABIA] : ["Abha","Ad-Dilam","Al-Abwa","Al Artaweeiyah"]
 }
 
-export type job = {
+export type jobModel = {
   id: number;
   userId: number;
   title: string;

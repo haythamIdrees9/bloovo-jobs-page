@@ -1,22 +1,26 @@
-import { Component } from '@angular/core';
-import { job } from './jobs/job-model';
+import { Component, HostListener } from '@angular/core';
+import { jobModel } from './jobs/job-model';
 import { JobsDataService } from './jobs/jobs-data.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers:[JobsDataService]
+  providers: [JobsDataService],
 })
 export class AppComponent {
   title = 'jobs-page';
-  jobs:ReadonlyArray<job> =  [];
-  constructor(private jobsDataService:JobsDataService){
-    this.jobsDataService.getJobs().subscribe(jobs => this.jobs = jobs)
+  jobs: ReadonlyArray<jobModel> = [];
+  constructor(private jobsDataService: JobsDataService) {
+    this.jobsDataService.getJobs().subscribe((jobs) => (this.jobs = jobs));
   }
-  deleteFirstJob(){
-    if(this.jobs.length > 0){
-      this.jobsDataService.deleteJob(this.jobs[0].id);
-    } 
+
+  resetData() {
+    this.jobsDataService.resetData();
+  }
+
+  @HostListener('window:beforeunload')
+  beforeUnloadHandler() {
+    this.jobsDataService.storeJobsOnLocalStorage();
   }
 }
