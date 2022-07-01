@@ -1,20 +1,23 @@
-.data-container{
-    width: 100%;
+.data-container {
+  width: 100%;
+  display: flex;
+  .filter {
+    width: 400px;
+    min-width: 400px;
+    margin-right: 24px;
+    height: 100px;
+    background-color: red;
+    color: white;
     display: flex;
-    .filter{
-        width: 300px;
-        min-width: 300px;
-        margin-right: 24px;
-        height: 100px;
-        background-color: red;
-        color: white;
-        display: flex;
-        font-size: 48px;
-        justify-content: center;
-        align-items: center;
-        @media screen and(max-width:991px) {
-            display: none;
-        }
+    font-size: 48px;
+    justify-content: center;
+    align-items: center;
+    @media screen and(max-width:1400px) {
+        min-width: calc(100vw - 976px);
+      }
+    @media screen and(max-width:991px) {
+      display: none;
     }
-
+  }
+  
 }
