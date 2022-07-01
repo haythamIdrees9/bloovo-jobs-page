@@ -1,0 +1,26 @@
+.filter {
+    width: 400px;
+    min-width: 400px;
+    margin-right: 24px;
+    height: 100vh;
+    border: 1px solid rgb(90,131,168);
+    border-radius: 4px;
+    padding: 1rem;
+    .title{
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+    input{
+      margin-bottom: 8px;
+    }
+    input,label{
+      cursor: pointer;
+    }
+    @media screen and(max-width:1400px) {
+        min-width: calc(100vw - 976px);
+      }
+    @media screen and(max-width:991px) {
+      display: none;
+    }
+  }

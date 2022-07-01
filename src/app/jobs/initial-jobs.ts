@@ -1,6 +1,6 @@
 // we will create dummy data to be used in  visualize jobs component
 // TODO: remove this data since the initial state for the project is empty data and user can fill the data
-import { citiesList, CounterEnum, jobModel, SectorEnum } from './job-model';
+import { citiesList, CountryEnum, jobModel, SectorEnum } from './job-model';
 const loremText =
   "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
 
@@ -10,8 +10,8 @@ export const initialJobsList: ReadonlyArray<jobModel> = [
     userId:0,
     title: 'Job Title',
     sector: SectorEnum.ADMINISTRATION,
-    country: CounterEnum.JORDAN,
-    city: citiesList[CounterEnum.JORDAN][0],
+    country: CountryEnum.JORDAN,
+    city: citiesList[CountryEnum.JORDAN][0],
     description: loremText,
   },
   {
@@ -19,8 +19,8 @@ export const initialJobsList: ReadonlyArray<jobModel> = [
     userId:0,
     title: 'Job Title',
     sector: SectorEnum.COMPUTER_SOFTWARE,
-    country: CounterEnum.JORDAN,
-    city: citiesList[CounterEnum.JORDAN][0],
+    country: CountryEnum.JORDAN,
+    city: citiesList[CountryEnum.JORDAN][0],
     description: loremText,
   },
   {
@@ -28,8 +28,8 @@ export const initialJobsList: ReadonlyArray<jobModel> = [
     userId:0,
     title: 'Job Title',
     sector: SectorEnum.SALE,
-    country: CounterEnum.SAUDI_ARABIA,
-    city: citiesList[CounterEnum.SAUDI_ARABIA][0],
+    country: CountryEnum.SAUDI_ARABIA,
+    city: citiesList[CountryEnum.SAUDI_ARABIA][0],
     description: loremText,
   },
   {
@@ -37,8 +37,8 @@ export const initialJobsList: ReadonlyArray<jobModel> = [
     userId:0,
     title: 'Job Title',
     sector: SectorEnum.COMPUTER_SOFTWARE,
-    country: CounterEnum.SAUDI_ARABIA,
-    city: citiesList[CounterEnum.SAUDI_ARABIA][0],
+    country: CountryEnum.SAUDI_ARABIA,
+    city: citiesList[CountryEnum.SAUDI_ARABIA][0],
     description: loremText,
   },
   {
@@ -46,8 +46,8 @@ export const initialJobsList: ReadonlyArray<jobModel> = [
     userId:0,
     title: 'Job Title',
     sector: SectorEnum.AIRLINES,
-    country: CounterEnum.LEBANON,
-    city: citiesList[CounterEnum.LEBANON][0],
+    country: CountryEnum.LEBANON,
+    city: citiesList[CountryEnum.LEBANON][0],
     description: loremText,
   },
 ];

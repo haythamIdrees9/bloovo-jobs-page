@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime, filter, skip, take } from 'rxjs';
-import { jobModel } from '../job-model';
+import { CountryEnum, jobModel, SectorEnum, wholeCitiesList } from '../job-model';
 import { JobsDataService } from '../jobs-data.service';
 
 @Component({
@@ -14,6 +14,10 @@ export class JobsViewComponent implements OnInit {
   jobs: ReadonlyArray<jobModel> = [];
   filteredJobs: ReadonlyArray<jobModel> = [];
   filterControl = new FormControl();
+  
+  sectors:any = Object.keys(SectorEnum);
+  countries:any = Object.keys(CountryEnum);
+  citiesList:any = wholeCitiesList;
   constructor(
     private jobsDataService: JobsDataService,
     private router: Router,
@@ -31,11 +35,14 @@ export class JobsViewComponent implements OnInit {
         this.jobs = jobs;
         this.handleUrlChange();
       });
-    this.jobsDataService.getJobs().pipe(skip(1)).subscribe((jobs) => (this.jobs = jobs));
-      this.handleTermChange();
+    this.jobsDataService
+      .getJobs()
+      .pipe(skip(1))
+      .subscribe((jobs) => (this.jobs = jobs));
+    this.handleTermChange();
   }
 
-  private handleTermChange(){
+  private handleTermChange() {
     this.filterControl.setValue(this.route.snapshot.queryParams['term'] || '');
     this.filterControl.valueChanges
       .pipe(debounceTime(350))
@@ -46,7 +53,9 @@ export class JobsViewComponent implements OnInit {
             queryParamsHandling: 'merge',
           });
         } else {
-          this.router.navigate(['']);
+          const queryParams:any = {...this.route.snapshot.queryParams};
+          delete queryParams.term;
+          this.router.navigate([''], {queryParams});
         }
       });
   }
@@ -54,11 +63,36 @@ export class JobsViewComponent implements OnInit {
   private handleUrlChange() {
     this.route.queryParams.subscribe((queryParams) => {
       this.onFilter(queryParams['term']);
-    });
+      if(queryParams['cities'] || queryParams['sectors'] || queryParams['countries']){
+        this.handleFilterersValue();
+      }
+      });
+  }
+
+  private handleFilterersValue(){
+    this.filteredJobs = this.filteredJobs.filter((job:jobModel) =>{
+      if(this.isFilterInclude('sectors',this.sectors,job.sector) || this.isFilterInclude('countries',this.countries,job.country) || 
+      this.isFilterInclude('cities',this.citiesList,job.city)  ){
+        return true;
+      }
+      return false;
+    })
+  }
+  private isFilterInclude(key:string,list:string[],jobValue:string):boolean{
+    const queryParams = this.route.snapshot.queryParams;
+    if(queryParams[key]){
+      const citiesIndexes = queryParams[key].split(',');
+      for (const index of citiesIndexes) { 
+        if(index < list[index] && this.isInclude(jobValue,list[index])){
+          return true;
+        } 
+      }
+    }
+    return false;
   }
 
   private onFilter(term: string) {
-    if(!term?.length){
+    if (!term?.length) {
       this.filteredJobs = this.jobs;
     } else if (this.jobs) {
       this.filteredJobs = this.jobs.filter((job) => {
@@ -76,7 +110,7 @@ export class JobsViewComponent implements OnInit {
     }
   }
 
-  private isInclude(originText: string, term: string):boolean {
+  private isInclude(originText: string, term: string): boolean {
     return originText?.toLowerCase().includes(term?.toLowerCase());
   }
 }
