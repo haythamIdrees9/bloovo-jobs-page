@@ -103,13 +103,7 @@ export class JobsViewComponent implements OnInit {
     } else if (this.jobs) {
       this.filteredJobs = this.jobs.filter((job) => {
         if (job) {
-          return (
-            this.isInclude(job.title, term) ||
-            this.isInclude(job.country, term) ||
-            this.isInclude(job.sector, term) ||
-            this.isInclude(job.city, term) ||
-            this.isInclude(job.description, term)
-          );
+          return this.isInclude(job.title, term)
         }
         return false;
       });
