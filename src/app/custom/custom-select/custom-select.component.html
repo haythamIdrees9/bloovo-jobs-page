@@ -15,6 +15,6 @@
             <input type="text" placeholder="filter" (click)="$event.stopPropagation()" [formControl]="filterControl">
             <div class="option" *ngFor="let option of filteredOptions" (click)="onSelectOption(option)">{{option}}</div>
         </div>
-        <img class="arrow" [class.opened]="opened && !disabled" height="24px" width="24px" src="assets/images/arrow.svg" alt="view job">
+        <img class="arrow" [class.opened]="opened && !disabled" height="24" width="24" src="assets/images/arrow.svg" alt="view job">
     </div>
 </div>

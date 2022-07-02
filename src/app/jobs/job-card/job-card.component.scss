@@ -66,10 +66,22 @@
       font-size: 0.875rem;
       color: #a2a2a2;
       margin-top: 8px;
+      margin-bottom: 1.5rem;
     }
     .title,
     .location {
       margin-bottom: 1rem;
     }
   }
+}
+
+.overlay-layer{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.616);
+  opacity: 0;
+  animation: opacity-animation .55s forwards;
 }
