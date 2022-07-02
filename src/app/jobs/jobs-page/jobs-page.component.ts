@@ -8,9 +8,7 @@ import { Component, HostListener } from '@angular/core';
 export class JobsPageComponent  {
   filterOpened:boolean = false;
   @HostListener('document:click', ['$event'])
-  onClick() {
-    console.log('filterOpened',this.filterOpened);
-    
+  onClick() {    
     this.filterOpened = false;
   }
 }

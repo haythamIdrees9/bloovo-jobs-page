@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -13,7 +12,7 @@ import { AppComponent } from './app.component';
       {
         path: 'jobs',
         loadChildren: async () =>
-          (await import('./jobs/jobs-page/jobs.module')).JobsModule,
+          (await import('./jobs/jobs.module')).JobsModule,
       },
     ]),
   ],

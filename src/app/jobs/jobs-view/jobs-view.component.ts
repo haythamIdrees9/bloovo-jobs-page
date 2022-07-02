@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime, filter, skip, take } from 'rxjs';
@@ -18,12 +18,15 @@ export class JobsViewComponent implements OnInit {
   sectors:any = Object.keys(SectorEnum);
   countries:any = Object.keys(CountryEnum);
   citiesList:any = wholeCitiesList;
+  isCreateModalOpened:boolean=false;
   @Output('toggleFilter') toggleFilterEmitter = new EventEmitter<void>()
   constructor(
     private jobsDataService: JobsDataService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
+
+
 
   ngOnInit(): void {
     this.jobsDataService

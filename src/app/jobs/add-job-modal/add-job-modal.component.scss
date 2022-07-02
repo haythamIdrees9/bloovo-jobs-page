@@ -1,0 +1,118 @@
+$primary: #41719c;
+$gray: #a5a5a5;
+$dark-gray: #c2c2c7;
+
+.container {
+  width: 70vw;
+  max-height: 90vh;
+  max-width: 900px;
+  padding-bottom: 24px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  @media screen and(max-width:550px) {
+      width: calc(100vw - 48px);
+  }
+  .title {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: #dfdddd;
+    padding: 1rem 0;
+    margin: 0;
+    line-height: 2;
+    margin-bottom: 2rem;
+  }
+  .data-container {
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    textarea {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    input {
+      box-sizing: border-box;
+      padding: 10px;
+    }
+    app-custom-select,
+    input {
+      width: calc(50% - 12px);
+      &:nth-child(2) {
+        margin-left: 24px;
+      }
+    }
+    margin-bottom: 24px;
+
+    @media screen and (max-width: 991px) {
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1rem;
+      app-custom-select,
+      input {
+        margin: 0 0 24px 0 !important;
+        width: 100%;
+      }
+      margin-bottom: 0;
+    }
+  }
+
+  input,
+  textarea {
+    outline: none !important;
+    border: 1px solid $gray;
+    border-radius: 4px;
+    resize: none;
+    &:focus-visible {
+      border-color: $primary;
+      border-width: 2;
+    }
+  }
+
+  .actions-container{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 2rem;
+    @media screen and (max-width: 991px) {
+        padding-right: 1rem;
+    }
+
+    .add-new,
+    .cancel {
+        height: 40px;
+        border-radius: 4px;
+        color: white;
+        text-align: center;
+        outline: none;
+        border: none;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .add-new {
+        background-color: #2196f3;
+        width: 140px;
+
+        &:disabled{
+          background-color: #a3a3a3;
+          cursor: default;
+        }
+    }
+    .cancel {
+        background-color: $dark-gray;
+        margin-right: 1rem;
+        padding: 0 1rem;
+    }
+    @media screen and (max-width: 320px) {
+        .cancel,.add-new {
+            font-size: 0.8rem;
+        }
+    .add-new {
+        width: 100px;
+    }
+    }
+}
+}
