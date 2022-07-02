@@ -1,0 +1,53 @@
+$dark-gray: #c2c2c7;
+$gray: #a5a5a5;
+
+.container {
+  padding: 2rem 1rem 2rem 2rem;
+  @media screen and(max-width:315px) {
+      padding: 2rem 1rem;
+  }
+  width: 400px;
+  max-width: calc(100vw - 48px);
+  box-sizing: border-box;
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  .description {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .action-container {
+    .confirm,
+    .cancel {
+      height: 40px;
+      border-radius: 4px;
+      color: white;
+      text-align: center;
+      outline: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 0 1rem;
+      @media screen and(max-width:315px) {
+        padding: 0 .5rem;
+    }
+    }
+    .cancel {
+      background-color: $gray;
+      &:hover {
+        background-color: $dark-gray;
+      }
+    }
+    .confirm {
+      background-color: rgb(194, 11, 11);
+      color: white;
+      &:hover {
+        background-color: rgb(212, 0, 0);
+      }
+      margin-right: 1rem;
+    }
+  }
+}
