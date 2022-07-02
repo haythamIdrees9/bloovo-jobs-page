@@ -10,6 +10,9 @@ export class CustomPaginationComponent implements OnInit {
   @Input('pageSize') pageSize: number = 10;
   @Input('itemsLength') set setItemsLength(itemsLength: number){
     this.itemsLength = itemsLength;
+    if(this.itemsLength === 0){
+      this.pagesNumber = 0;
+    }
     this.handlePaginationData();
   }
   itemsLength!: number;
