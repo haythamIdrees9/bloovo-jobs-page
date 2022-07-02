@@ -1,4 +1,4 @@
-<div class="links">
+<div class="links" [class.v-hidden]="pagesNumber < 2">
     
     <a *ngIf="pagesNumber > 2"  [routerLink]="previousPages?.length?[currentUrl]:null"class="previous-arrow"  [class.disabled]="!previousPages?.length" [queryParams]="{page:pageNumber - 1}" rel="next">
         <img   height="24px" width="24px" src="assets/images/arrow.svg" alt="next page">

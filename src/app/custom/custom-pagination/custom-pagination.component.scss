@@ -11,6 +11,9 @@ $gray: #a5a5a5;
     display: flex;
     justify-content: flex-end;
     margin-bottom: 1rem;
+    &.v-hidden{
+        visibility: hidden;
+    }
     a,.selected{
         margin-left: 8PX;
         display: flex;

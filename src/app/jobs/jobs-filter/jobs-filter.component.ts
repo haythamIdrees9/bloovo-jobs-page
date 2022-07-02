@@ -74,11 +74,11 @@ export class JobsFilterComponent implements OnInit {
     if (selected.length) {
 
       this.router.navigate([this.router.url.split('?')[0]], {
-        queryParams: { [queryParamKey]: selected.toString() },
+        queryParams: { [queryParamKey]: selected.toString(),page:1 },
         queryParamsHandling: 'merge',
       });
     } else {
-      const queryParams: any = { ...this.route.snapshot.queryParams };
+      const queryParams: any = { ...this.route.snapshot.queryParams,page:1 };
       delete queryParams[queryParamKey];
       this.router.navigate([''], { queryParams });
     }

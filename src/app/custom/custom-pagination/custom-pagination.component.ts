@@ -8,7 +8,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CustomPaginationComponent implements OnInit {
   @Input('pageSize') pageSize: number = 10;
-  @Input('itemsLength') itemsLength!: number;
+  @Input('itemsLength') set setItemsLength(itemsLength: number){
+    this.itemsLength = itemsLength;
+    this.handlePaginationData();
+  }
+  itemsLength!: number;
   pagesNumber!: number;
   previousPages:number[] = []
   nextPages:number[] = []
@@ -29,7 +33,7 @@ export class CustomPaginationComponent implements OnInit {
   }
 
   handlePaginationData() {
-    if (this.itemsLength <= 0 || this.pageSize <= 1) {
+    if (this.itemsLength <= 0 || this.pageSize <= 1 || !this.pageNumber) {
       return;
     }
     this.pagesNumber = Math.ceil(this.itemsLength / this.pageSize);
