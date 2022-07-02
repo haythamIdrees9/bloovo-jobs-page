@@ -14,9 +14,8 @@
     <button class="filter-tablet" (click)="toggleFilter($event)">
         <img  height="24px" width="24px" src="assets/images/filter.svg" alt="view job">
     </button>
-
-
-    <div >
-        <app-job-card *ngFor="let job of filteredJobs" [job]="job"></app-job-card>
+    <div>
+        <app-custom-pagination [pageSize]="pageLength" [itemsLength]="jobs.length"></app-custom-pagination>
+        <app-job-card *ngFor="let job of filteredJobs| slice:(!!term?0:(pageNumber - 1) * pageLength):(!!term?filteredJobs.length:pageNumber * pageLength)" [job]="job"></app-job-card>
     </div>
 </div>
