@@ -1,0 +1,14 @@
+<div *ngIf="job" class="data-container">
+    <div  class="title">
+        <strong >{{job.title}}</strong> 
+    </div>
+    <div>
+       <div class="key">Location:</div> <span class="location"> {{job.city}}, {{job.country}}</span>
+    </div>
+    <div>
+       <div class="key">Sector:</div> {{job.sector}}
+    </div>
+    <div class="description">
+        {{job.description}}
+    </div>
+</div>

@@ -11,11 +11,15 @@ export class JobCardComponent {
  
   @Input('job') job:jobModel | undefined;
   isJobDeleteClicked:boolean = false;
+  isJobViewWClicked:boolean = false;
   constructor(private jobsDataService:JobsDataService) { }
 
   deleteJob() {
-    if(this.job){
-      this.jobsDataService.deleteJob(this.job.id)
+    if(this.job && !!window){
+      const jobId = this.job.id;
+      setTimeout(()=>{
+        this.jobsDataService.deleteJob(jobId)
+      },400)
     }
   }
 
