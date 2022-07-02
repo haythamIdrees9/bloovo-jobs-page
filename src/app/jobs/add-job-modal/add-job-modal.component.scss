@@ -29,10 +29,13 @@ $dark-gray: #c2c2c7;
     justify-content: center;
     textarea {
       width: 100%;
-      margin-bottom: 1rem;
+      margin-bottom: 4rem;
       padding: 1rem;
       font-size: 1rem;
       box-sizing: border-box;
+      @media screen and(max-width:550px) {
+        margin-bottom: 1.5rem;
+      }
     }
     input {
       box-sizing: border-box;

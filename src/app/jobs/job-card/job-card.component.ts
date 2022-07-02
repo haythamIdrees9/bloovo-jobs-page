@@ -10,7 +10,7 @@ import { JobsDataService } from '../jobs-data.service';
 export class JobCardComponent {
  
   @Input('job') job:jobModel | undefined;
-
+  isJobDeleteClicked:boolean = false;
   constructor(private jobsDataService:JobsDataService) { }
 
   deleteJob() {

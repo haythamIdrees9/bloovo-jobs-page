@@ -1,6 +1,7 @@
 <app-custom-modal #add_modal *ngIf="isCreateModalOpened" (closeModal)="isCreateModalOpened = false">
   <app-add-job-modal (close)="add_modal?.closeModal()"> </app-add-job-modal>
 </app-custom-modal>
+
 <div class="container">
     <div class="actions-container mb-24px">
         <input placeholder="Search By Job Title" class="search-field" [formControl]="filterControl">
