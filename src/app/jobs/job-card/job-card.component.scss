@@ -1,0 +1,75 @@
+.container {
+  padding: 1rem;
+  display: flex;
+  background-color: white;
+  max-width: 100%;
+  position: relative;
+  border: 1px solid rgb(90,131,168);
+  border-radius: 4px;
+  margin-bottom: 24px;
+  // filter is not working well on all browser, so I will use it to avoid unexpected filter result
+  @mixin filter($value) {
+    -webkit-filter: $value;
+    -moz-filter: $value;
+    -o-filter: $value;
+    filter: $value;
+  }
+  .trash,
+  .eye {
+    position: absolute;
+    top: 16px;
+    cursor: pointer;
+  }
+  .trash {
+    right: 16px;
+    // #D43636 filter value
+    @include filter(
+      invert(37%) sepia(15%) saturate(5273%) hue-rotate(327deg) brightness(85%)
+        contrast(105%)
+    );
+  }
+  .eye {
+    right: 56px;
+
+    // #1B94F3 filter value
+    @include filter(
+      invert(47%) sepia(33%) saturate(4023%) hue-rotate(184deg) brightness(98%)
+        contrast(93%)
+    );
+  }
+  .job-img {
+    width: 160px;
+    height: 160px;
+    @media screen and(max-width:500px) {
+      width: 90px;
+      height: 90px;  
+    }
+  }
+  .data-container {
+    padding: 1rem;
+    max-width: 70%;
+    @media screen and (max-width: 360px) {
+        padding-top: 2rem;
+    }
+    .title {
+      font-size: 1.25rem;
+    }
+
+    .title,
+    .description {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: min(400px, 35vw);
+    }
+    .description {
+      font-size: 0.875rem;
+      color: #a2a2a2;
+      margin-top: 8px;
+    }
+    .title,
+    .location {
+      margin-bottom: 1rem;
+    }
+  }
+}

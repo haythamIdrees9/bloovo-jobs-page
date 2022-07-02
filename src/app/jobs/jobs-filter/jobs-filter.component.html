@@ -1,0 +1,30 @@
+<div class="filter" [class.opened]="opened" (click)="$event.stopPropagation()">
+  <form>
+
+    <div class="title">Sector</div>
+    <div *ngFor="let sector of sectorEnum | keyvalue; let index = index">
+      <label [for]="sector.key"
+        ><input type="checkbox" [id]="sector.key" [name]="sector.key" [value]="sector.value" #current 
+        (change)="onSectorsChange(current.checked, index)"  [checked]="selectedData.sectors[index]"  />
+        {{ sector.value }} 
+      </label>
+    </div>
+
+    <div class="title">Country</div>
+    <div *ngFor="let country of countryEnum | keyvalue; let index = index">
+      <label [for]="country.key"> 
+        <input type="checkbox" [id]="country.key" [name]="country.key" [value]="country.value"
+         #current (change)="onCountriesChange(current.checked, index)" [checked]="selectedData.countries[index]"/>
+        {{ country.value }}
+      </label>
+    </div>
+
+    <div class="title">City</div>
+    <div *ngFor="let city of citiesList; let index = index">
+      <label [for]="city"><input type="checkbox" [id]="city" [name]="city"
+          [value]="city" #current (change)="onCitiesChange(current.checked, index)" [checked]="selectedData.cities[index]"/>
+        {{city}}
+      </label>
+    </div>
+  </form>
+</div>

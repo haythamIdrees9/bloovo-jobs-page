@@ -1,0 +1,7 @@
+    <div class="data-container">
+        <div *ngIf="filterOpened" class="overlay-layer"></div>
+        <div class="filter">
+            <app-jobs-filter [opened]="filterOpened"></app-jobs-filter>
+        </div>
+        <app-jobs-view (toggleFilter)="filterOpened = !filterOpened"></app-jobs-view>
+    </div>

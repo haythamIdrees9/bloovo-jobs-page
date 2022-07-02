@@ -1,0 +1,21 @@
+<div class="container">
+    <img class="job-img" height="140px" width="140px" src="assets/images/placeholder_img.png" alt="">
+    <!-- TODO: trash and eye icon is not the correct one, when finishing the task, will looking for it -->
+    <img class="trash" height="28px" width="24px"  src="assets/images/trash.svg" alt="delete job" (click)="deleteJob()">
+    <img class="eye"  height="24px" width="24px" src="assets/images/eye.svg" alt="view job">
+
+    <div *ngIf="job" class="data-container">
+        <div class="title">
+            <strong>{{job.title}}</strong> 
+        </div>
+        <div class="location">
+            {{job.city}}, {{job.country}}
+        </div>
+        <div>
+            {{job.sector}}
+        </div>
+        <div class="description">
+            {{job.description}}
+        </div>
+    </div>
+</div>
