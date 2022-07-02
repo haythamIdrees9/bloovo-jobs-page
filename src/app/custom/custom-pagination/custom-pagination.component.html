@@ -1,0 +1,12 @@
+<div class="links">
+    
+    <a *ngIf="pagesNumber > 2"  [routerLink]="previousPages?.length?[currentUrl]:null"class="previous-arrow"  [class.disabled]="!previousPages?.length" [queryParams]="{page:pageNumber - 1}" rel="next">
+        <img   height="24px" width="24px" src="assets/images/arrow.svg" alt="next page">
+    </a> 
+    <a   *ngFor="let page of previousPages" [routerLink]="[currentUrl]"  [queryParams]="{page}" rel="prev">{{page}}</a>
+    <div class="selected">{{pageNumber}}</div>
+        <a  [routerLink]="[currentUrl]" *ngFor="let page of nextPages" [queryParams]="{page}" rel="next">{{page}}</a>
+    <a  *ngIf="pagesNumber > 2" [routerLink]="nextPages?.length?[currentUrl]:null" class="next-arrow" [class.disabled]="!nextPages?.length" [queryParams]="{page:pageNumber + 1}" rel="next">
+        <img   height="24px" width="24px" src="assets/images/arrow.svg" alt="next page">
+    </a> 
+</div>

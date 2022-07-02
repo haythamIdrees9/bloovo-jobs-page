@@ -1,5 +1,5 @@
     <div class="data-container">
-        <div *ngIf="filterOpened" class="overlay-layer"></div>
+        <div *ngIf="filterOpened" class="overlay-layer" (click)="filterOpened = false;"></div>
         <div class="filter">
             <app-jobs-filter [opened]="filterOpened"></app-jobs-filter>
         </div>

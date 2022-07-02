@@ -19,6 +19,9 @@ export class JobsViewComponent implements OnInit {
   countries:any = Object.keys(CountryEnum);
   citiesList:any = wholeCitiesList;
   isCreateModalOpened:boolean=false;
+  readonly pageLength:number = 10;
+  pageNumber:number = 1;
+  term:string = "";
   @Output('toggleFilter') toggleFilterEmitter = new EventEmitter<void>()
   constructor(
     private jobsDataService: JobsDataService,
@@ -56,6 +59,7 @@ export class JobsViewComponent implements OnInit {
     this.filterControl.valueChanges
       .pipe(debounceTime(350))
       .subscribe((term) => {
+        this.term = term;
         if (term) {
           this.router.navigate([''], {
             queryParams: { term },
@@ -71,6 +75,7 @@ export class JobsViewComponent implements OnInit {
 
   private handleUrlChange() {
     this.route.queryParams.subscribe((queryParams) => {
+      this.pageNumber = queryParams['page'] ? Number(queryParams['page']) : 1;
       this.onFilter(queryParams['term']);
       if(queryParams['cities'] || queryParams['sectors'] || queryParams['countries']){
         this.handleFilterersValue();
