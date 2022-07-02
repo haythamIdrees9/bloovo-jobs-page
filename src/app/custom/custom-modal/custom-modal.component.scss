@@ -1,0 +1,36 @@
+.container{
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 10;
+    background: white;
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+    animation: move-to-view .75s forwards;
+    &.closed{
+        animation: close-modal .45s forwards;
+    }
+    @keyframes move-to-view {
+
+
+        from{
+            top: 30%;
+            opacity: 0.3;
+        }
+        to{
+            top: 50%;
+            opacity: 1;
+        }
+    }
+
+    @keyframes close-modal {
+        from{
+            top: 50%;
+            opacity: 1;
+        }
+        to{
+            top: 50%;
+            opacity: .0;
+        }
+    }
+
+}

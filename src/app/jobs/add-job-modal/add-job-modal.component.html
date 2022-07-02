@@ -1,0 +1,20 @@
+<div class="container">
+    <p class="title">Add New Job Post</p>
+    <div class="data-container">
+        <input type="text" placeholder="Job title" [(ngModel)]="title">    
+        <app-custom-select [placeholder]="'Sector'" (onselect)="selectedSector = $event" [selectName]="'sector'" [options]="sectors"></app-custom-select>
+
+    </div>
+    <div class="data-container">
+        <app-custom-select (onselect)="selectedCountry = $event" [placeholder]="'Country'" [selectName]="'country'" [options]="countries"></app-custom-select>
+        <app-custom-select *ngIf="!selectedCountry" [disabled]="true" (onselect)="selectedCity = $event" [placeholder]="'City'" [selectName]="'city'" [options]="[]"></app-custom-select>
+        <app-custom-select *ngIf="selectedCountry"  (onselect)="selectedCity = $event" [placeholder]="'City'" [selectName]="'city'" [options]="citiesList[selectedCountry]"></app-custom-select>
+    </div>
+    <div class="data-container">
+        <textarea name="description" id="description"  [(ngModel)]="description" placeholder="Description" rows="10"></textarea>
+    </div>
+    <div class="actions-container">
+        <button class="cancel" (click)="cancel()">Cancel</button>
+        <button class="add-new" (click)="createJob()" [disabled]="!(title && selectedSector && selectedCountry && selectedCity && description)">Add New Job</button>
+    </div>
+</div>

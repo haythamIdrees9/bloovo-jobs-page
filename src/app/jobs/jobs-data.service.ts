@@ -39,6 +39,11 @@ export class JobsDataService {
     this.jobsListBehaviorSubject.next(this.jobsList);
   }
 
+  addJob(job: jobModel) {
+    this.jobsList.unshift(job);
+    this.jobsListBehaviorSubject.next(this.jobsList);
+  }
+
   getJobs(): Observable<readonly jobModel[]> {
     return this.jobsListBehaviorSubject.asObservable();
   }

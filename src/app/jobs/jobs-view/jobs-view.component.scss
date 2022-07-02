@@ -2,9 +2,15 @@
 @author Haytham
 gap not working on ios, so we use margin
 */
+$gray: #a5a5a5;
+
 .container {
   background-color: #f7f7f7;
   padding: 1rem;
+  @media screen and (max-width:550px) {
+    padding: 0.4rem;
+  }
+  box-sizing: border-box;
   .mb-24px {
     margin-bottom: 24px;
   }
@@ -16,7 +22,7 @@ gap not working on ios, so we use margin
       height: 40px;
       box-sizing: border-box;
       margin: 0 1.5rem 0 0;
-      border: 1px solid #a5a5a5;
+      border: 1px solid $gray;
       padding-left: 16px;
       &::placeholder {
         font-weight: 500;

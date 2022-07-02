@@ -1,0 +1,20 @@
+<div class="container" (click)="opened = !opened" #container>
+    <select [name]="selectName" [attr.aria-placeholder]="placeholder" [id]="selectName">
+        <option *ngFor="let option of options" [value]="option">{{option}}</option>
+    </select>
+    <div class="select-container" [class.disabled]="disabled" [title]="disabled?'Select Country Please':''">
+       <div *ngIf="selectedOption; else placeholderShown">
+           {{selectedOption}}
+        </div>
+        <ng-template #placeholderShown>
+                <div class="placeholder">
+                    {{placeholder}}
+                </div>
+        </ng-template>
+        <div class="options"  [class.opened]="opened && !disabled">
+            <input type="text" placeholder="filter" (click)="$event.stopPropagation()" [formControl]="filterControl">
+            <div class="option" *ngFor="let option of filteredOptions" (click)="onSelectOption(option)">{{option}}</div>
+        </div>
+        <img class="arrow" [class.opened]="opened && !disabled" height="24px" width="24px" src="assets/images/arrow.svg" alt="view job">
+    </div>
+</div>
