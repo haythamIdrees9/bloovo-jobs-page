@@ -7,13 +7,13 @@
         <input placeholder="Search By Job Title" class="search-field" [formControl]="filterControl">
         <div class="filter-mobile-container">
             <button class="filter-mobile" (click)="toggleFilter($event)">
-                <img   height="24px" width="24px" src="assets/images/filter.svg" alt="view job">
+                <img   height="24" width="24" src="assets/images/filter.svg" alt="view job">
             </button>
             <button class="add-new" (click)="isCreateModalOpened = true;$event.stopPropagation()">Add New Job</button>
         </div>
     </div>
     <button class="filter-tablet" (click)="toggleFilter($event)">
-        <img  height="24px" width="24px" src="assets/images/filter.svg" alt="view job">
+        <img  height="24" width="24" src="assets/images/filter.svg" alt="view job">
     </button>
     <div>
         <app-custom-pagination [pageSize]="pageLength" [itemsLength]="filteredJobs.length"></app-custom-pagination>

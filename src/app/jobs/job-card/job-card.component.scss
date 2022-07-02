@@ -74,3 +74,14 @@
     }
   }
 }
+
+.overlay-layer{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.616);
+  opacity: 0;
+  animation: opacity-animation .55s forwards;
+}

@@ -1,4 +1,6 @@
 <div *ngIf="job" class="data-container">
+    <img class="close" height="24" width="24"  src="assets/images/close.svg" alt="delete job" (click)="cancel()">
+
     <div  class="title">
         <strong >{{job.title}}</strong> 
     </div>

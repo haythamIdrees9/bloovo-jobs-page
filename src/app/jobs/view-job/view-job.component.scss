@@ -4,6 +4,13 @@
     max-width: 500px;
     overflow-y: auto;
     max-height: 95vh;
+    position: relative;
+    .close{
+        position: absolute;
+        right: .5rem;
+        top: .5rem;
+        cursor: pointer;
+    }
     .key{
         font-size: 1.25rem;
         margin-bottom: 1.5rem;
