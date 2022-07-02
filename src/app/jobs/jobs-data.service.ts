@@ -18,7 +18,6 @@ export class JobsDataService {
     if (!localStorage) {
       return;
     }
-
     if (localStorage.getItem(JobsDataService.JOBS_STORAGE_KEY)) {
       this.jobsList = JSON.parse(
         localStorage.getItem(JobsDataService.JOBS_STORAGE_KEY) as string
@@ -30,7 +29,6 @@ export class JobsDataService {
       );
       this.jobsList = [...initialJobsList];
     }
-
     this.jobsListBehaviorSubject.next(this.jobsList);
   }
 

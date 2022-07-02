@@ -8,8 +8,8 @@ import { CountryEnum, SectorEnum, wholeCitiesList } from '../job-model';
   styleUrls: ['./jobs-filter.component.scss'],
 })
 export class JobsFilterComponent implements OnInit {
-  sectorEnum = SectorEnum;
-  countryEnum:any = CountryEnum;
+  sectors = Object.values(SectorEnum);
+  countries:any = Object.values(CountryEnum);
   citiesList = wholeCitiesList;
   selectedCountry: boolean[] = Array(Object.keys(CountryEnum).length).fill(
     false

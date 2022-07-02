@@ -2,20 +2,20 @@
   <form>
 
     <div class="title">Sector</div>
-    <div *ngFor="let sector of sectorEnum | keyvalue; let index = index">
-      <label [for]="sector.key"
-        ><input type="checkbox" [id]="sector.key" [name]="sector.key" [value]="sector.value" #current 
+    <div *ngFor="let sector of sectors ; let index = index">
+      <label [for]="sector"
+        ><input type="checkbox" [id]="sector" [name]="sector" [value]="sector" #current 
         (change)="onSectorsChange(current.checked, index)"  [checked]="selectedData.sectors[index]"  />
-        {{ sector.value }} 
+        {{ sector }} 
       </label>
     </div>
 
     <div class="title">Country</div>
-    <div *ngFor="let country of countryEnum | keyvalue; let index = index">
-      <label [for]="country.key"> 
-        <input type="checkbox" [id]="country.key" [name]="country.key" [value]="country.value"
+    <div *ngFor="let country of countries ; let index = index">
+      <label [for]="country"> 
+        <input type="checkbox" [id]="country" [name]="country" [value]="country"
          #current (change)="onCountriesChange(current.checked, index)" [checked]="selectedData.countries[index]"/>
-        {{ country.value }}
+        {{ country }}
       </label>
     </div>
 

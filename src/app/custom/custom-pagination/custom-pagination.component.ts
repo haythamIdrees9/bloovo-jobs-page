@@ -28,6 +28,10 @@ export class CustomPaginationComponent implements OnInit {
     this.route.queryParams.subscribe((queryParams) => {
       this.pageNumber = queryParams['page'] ? Number(queryParams['page']) : 1;
       this.currentUrl = this.router.url.split('?')[0];
+      if(!Number(this.route.snapshot.queryParams['page'])){
+        this.router.navigate([this.currentUrl],{queryParams:{page:1},queryParamsHandling:'merge',replaceUrl:true})
+        return;
+      }
       this.handlePaginationData();
     });
   }
@@ -37,6 +41,12 @@ export class CustomPaginationComponent implements OnInit {
       return;
     }
     this.pagesNumber = Math.ceil(this.itemsLength / this.pageSize);
+          
+    console.log(this.pagesNumber,'this.pageNumber',this.pageNumber);
+    if(this.pageNumber > this.pagesNumber){
+      this.router.navigate([this.currentUrl],{queryParams:{page:1},queryParamsHandling:'merge',replaceUrl:true})
+      return;
+    }
     this.calculatePagesList();
   }
 

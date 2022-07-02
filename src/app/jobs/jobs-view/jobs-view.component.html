@@ -16,6 +16,6 @@
     </button>
     <div>
         <app-custom-pagination [pageSize]="pageLength" [itemsLength]="filteredJobs.length"></app-custom-pagination>
-        <app-job-card *ngFor="let job of filteredJobs| slice:(!!term?0:(pageNumber - 1) * pageLength):(!!term?filteredJobs.length:pageNumber * pageLength)" [job]="job"></app-job-card>
+        <app-job-card *ngFor="let job of filteredJobs| slice:((!!term || filteredJobs.length <= (pageNumber - 1) * pageLength)?0:(pageNumber - 1) * pageLength):(!!term?filteredJobs.length:pageNumber * pageLength)" [job]="job"></app-job-card>
     </div>
 </div>
