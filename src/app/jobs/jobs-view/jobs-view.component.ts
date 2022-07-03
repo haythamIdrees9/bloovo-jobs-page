@@ -45,7 +45,10 @@ export class JobsViewComponent implements OnInit {
     this.jobsDataService
       .getJobs()
       .pipe(skip(1))
-      .subscribe((jobs) => (this.jobs = jobs));
+      .subscribe((jobs) => {
+        this.jobs = jobs;
+        this.onFilter(this.term);
+      });
     this.handleTermChange();
   }
 
