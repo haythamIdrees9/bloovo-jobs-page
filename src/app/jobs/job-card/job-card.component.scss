@@ -38,15 +38,15 @@
     );
   }
   .job-img {
-    width: 160px;
-    height: 160px;
+    width: 150px;
+    height: 150px;
     @media screen and(max-width:500px) {
       width: 90px;
       height: 90px;  
     }
   }
   .data-container {
-    padding: 1rem;
+    padding: 0 1rem;
     max-width: 70%;
     @media screen and (max-width: 360px) {
         padding-top: 2rem;
