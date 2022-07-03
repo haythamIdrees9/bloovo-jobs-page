@@ -15,8 +15,8 @@ export class JobsViewComponent implements OnInit {
   filteredJobs: ReadonlyArray<jobModel> = [];
   filterControl = new FormControl();
   
-  sectors:any = Object.keys(SectorEnum);
-  countries:any = Object.keys(CountryEnum);
+  sectors:any = Object.values(SectorEnum);
+  countries:any = Object.values(CountryEnum);
   citiesList:any = wholeCitiesList;
   isCreateModalOpened:boolean=false;
   readonly pageLength:number = 10;
