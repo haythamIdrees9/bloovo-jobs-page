@@ -34,7 +34,8 @@ export class CustomPaginationComponent implements OnInit {
 
   handlePaginationData() {
     if (this.itemsLength <= 0 || this.pageSize <= 1 || !this.pageNumber) {
-      return;
+        this.pagesNumber = 0;
+        return;
     }
     this.pagesNumber = Math.ceil(this.itemsLength / this.pageSize);
     this.calculatePagesList();
