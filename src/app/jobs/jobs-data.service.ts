@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { initialJobsList } from './initial-jobs';
 import { jobModel } from './job-model';
 
 @Injectable()
@@ -23,13 +22,7 @@ export class JobsDataService {
       this.jobsList = JSON.parse(
         localStorage.getItem(JobsDataService.JOBS_STORAGE_KEY) as string
       );
-    } else {
-      localStorage.setItem(
-        JobsDataService.JOBS_STORAGE_KEY,
-        JSON.stringify(initialJobsList)
-      );
-      this.jobsList = [...initialJobsList];
-    }
+    } 
 
     this.jobsListBehaviorSubject.next(this.jobsList);
   }
