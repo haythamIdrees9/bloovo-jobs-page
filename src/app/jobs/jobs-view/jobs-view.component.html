@@ -18,5 +18,8 @@
     <div>
         <app-custom-pagination [pageSize]="pageLength" [itemsLength]="filteredJobs.length"></app-custom-pagination>
         <app-job-card *ngFor="let job of filteredJobs| slice:(!!term?0:(pageNumber - 1) * pageLength):(!!term?filteredJobs.length:pageNumber * pageLength)" [job]="job"></app-job-card>
+        <div class="empty-state" *ngIf="!filteredJobs?.length">
+            No Jobs Available 
+        </div>
     </div>
 </div>

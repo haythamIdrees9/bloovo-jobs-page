@@ -8,9 +8,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      { path: '', redirectTo: 'jobs',pathMatch:'full' },
       {
-        path: 'jobs',
+        path: '',
         loadChildren: async () =>
           (await import('./jobs/jobs.module')).JobsModule,
       },
